@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marissea — Elegância que transcende temporadas | Alta Moda Feminina</title>
+  <meta name="description" content="Marissea: Marca de moda feminina sob a estética Quiet Luxury e Old Money com inspiração litorânea atemporal. Fibras nobres, linho puro e alfaiataria impecável.">
+  <!-- Proteção para que apenas quem tem o link consiga acessar (não listado no Google) -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon com a logo original -->
+  <link rel="icon" type="image/png" href="assets/images/logo-navy.png">
+
+  <!-- Tailwind CSS CDN com suporte nativo a estilos modernos -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            marissea: {
+              navy: '#0B2545',
+              navyDeep: '#071326',
+              navyVivid: '#133966',
+              ivory: '#FAF8F5',
+              cream: '#F5EFE6',
+              sand: '#DDD3C4',
+              sandLight: '#ECE5DA',
+              mist: '#D7E5EC',
+              charcoal: '#22262B'
+            }
+          },
+          fontFamily: {
+            serifTitle: ['"Bodoni Moda"', 'Georgia', 'serif'],
+            serifBody: ['"Cormorant Garamond"', 'Garamond', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Bodoni Moda, Cormorant Garamond, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#FAF8F5] text-[#22262B] antialiased selection:bg-[#0B2545] selection:text-[#FAF8F5]">
+
+  <!-- Top Announcement Bar (Subtle & Quiet Luxury) -->
+  <div class="bg-[#0B2545] text-[#FAF8F5] text-[11px] tracking-[0.2em] uppercase py-2 text-center border-b border-white/10 px-4">
+    <span>Coleção Riviera 2026 — Atendimento exclusivo e peças sob curadoria</span>
+  </div>
+
+  <!-- Header Minimalista e Sofisticado -->
+  <header class="sticky top-0 z-50 header-glass border-b border-black/[0.06] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 sm:h-24">
+        
+        <!-- Menu Mobile Button -->
+        <div class="flex items-center lg:hidden">
+          <button id="mobileMenuToggle" class="text-[#0B2545] p-2 hover:opacity-75 focus:outline-none" aria-label="Abrir menu">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <!-- Links Esquerda (Desktop) -->
+        <nav class="hidden lg:flex items-center space-x-10 text-[12px] uppercase tracking-[0.18em] font-medium text-[#0B2545]">
+          <a href="#home" class="hover:text-[#133966] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#0B2545] hover:after:w-full after:transition-all">Home</a>
+          <a href="#colecao" class="hover:text-[#133966] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#0B2545] hover:after:w-full after:transition-all">Coleção</a>
+          <a href="#editorial" class="hover:text-[#133966] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#0B2545] hover:after:w-full after:transition-all">Editorial</a>
+        </nav>
+
+        <!-- Logo Centralizada com amplo respiro -->
+        <div class="flex-shrink-0 flex items-center justify-center">
+          <a href="#home" class="block py-2">
+            <img id="headerLogo" src="assets/images/logo-navy.png" alt="Marissea Logo Oficial" class="h-10 sm:h-12 w-auto object-contain transition-transform hover:scale-[1.02] duration-300">
+          </a>
+        </div>
+
+        <!-- Links Direita (Desktop) -->
+        <nav class="hidden lg:flex items-center space-x-10 text-[12px] uppercase tracking-[0.18em] font-medium text-[#0B2545]">
+          <a href="#sobre" class="hover:text-[#133966] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#0B2545] hover:after:w-full after:transition-all">Sobre</a>
+          <a href="#contato" class="hover:text-[#133966] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-[#0B2545] hover:after:w-full after:transition-all">Contato</a>
+          
+          <!-- Acesso Discreto ao Painel Administrativo -->
+          <a href="admin.html" title="Área Restrita / Gestão" class="text-[#0B2545]/40 hover:text-[#0B2545] transition-colors p-1" aria-label="Acesso Administrativo">
+            <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+          </a>
+        </nav>
+
+        <!-- Ícones Direita Mobile (Apenas Acesso Admin discreto) -->
+        <div class="flex items-center lg:hidden">
+          <a href="admin.html" class="text-[#0B2545]/40 hover:text-[#0B2545] p-2" aria-label="Acesso Restrito">
+            <i data-lucide="lock" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Gaveta Menu Mobile -->
+    <div id="mobileMenu" class="hidden lg:hidden fixed inset-0 z-50 bg-[#FAF8F5] p-8 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-center pb-8 border-b border-black/[0.08]">
+          <img src="assets/images/logo-navy.png" alt="Marissea Logo" class="h-8 w-auto">
+          <button id="mobileMenuClose" class="text-[#0B2545] p-2" aria-label="Fechar menu">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <nav class="flex flex-col space-y-6 pt-10 text-center">
+          <a href="#home" class="font-serifTitle text-2xl text-[#0B2545] tracking-wide hover:opacity-75">Home</a>
+          <a href="#colecao" class="font-serifTitle text-2xl text-[#0B2545] tracking-wide hover:opacity-75">Coleção</a>
+          <a href="#editorial" class="font-serifTitle text-2xl text-[#0B2545] tracking-wide hover:opacity-75">Editorial</a>
+          <a href="#sobre" class="font-serifTitle text-2xl text-[#0B2545] tracking-wide hover:opacity-75">Sobre a Marca</a>
+          <a href="#contato" class="font-serifTitle text-2xl text-[#0B2545] tracking-wide hover:opacity-75">Contato</a>
+        </nav>
+      </div>
+      <div class="text-center pt-8 border-t border-black/[0.08] text-xs text-gray-500">
+        <p class="mb-2 tracking-luxury font-medium text-[#0B2545]">Marissea</p>
+        <p class="font-serifBody italic">Elegância que transcende temporadas.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION — EDITORIAL E ESPAÇOSA
+       ========================================== -->
+  <section id="home" class="relative overflow-hidden pt-6 pb-16 sm:pb-24 lg:pt-10 lg:pb-32 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Conteúdo Textual da Hero -->
+        <div class="lg:col-span-6 lg:pr-8 flex flex-col items-start justify-center order-2 lg:order-1">
+          <div class="inline-flex items-center gap-2 mb-6">
+            <span class="w-8 h-[1px] bg-[#0B2545]"></span>
+            <span id="heroBadge" class="text-[11px] uppercase tracking-[0.25em] font-medium text-[#0B2545]">
+              Coleção Riviera 2026
+            </span>
+          </div>
+
+          <h1 id="heroTitle" class="font-serifTitle text-4xl sm:text-5xl lg:text-6xl text-[#0B2545] leading-[1.15] font-normal mb-6">
+            Elegância que transcende temporadas.
+          </h1>
+
+          <p id="heroSubtitle" class="font-serifBody text-lg sm:text-xl text-[#6B7280] leading-relaxed mb-10 max-w-xl italic">
+            Alta alfaiataria feminina em fibras nobres. A união serena entre o Quiet Luxury e a brisa atemporal do litoral mediterrâneo.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+            <a href="#colecao" id="heroButton" class="btn-luxury-primary">
+              Conheça a Coleção
+            </a>
+            <a href="#sobre" class="btn-luxury-outline">
+              O Manifesto
+            </a>
+          </div>
+
+          <!-- Micro-detalhe litorâneo sutil -->
+          <div class="mt-14 pt-8 border-t border-black/[0.08] w-full flex items-center justify-between text-xs text-[#6B7280] tracking-wide">
+            <div>
+              <span class="block font-medium text-[#0B2545] uppercase tracking-luxury text-[10px]">Origem</span>
+              <span class="font-serifBody italic text-sm">Fibras Puras & Acabamento Artesanal</span>
+            </div>
+            <div class="w-[1px] h-8 bg-black/[0.08]"></div>
+            <div>
+              <span class="block font-medium text-[#0B2545] uppercase tracking-luxury text-[10px]">Filosofia</span>
+              <span class="font-serifBody italic text-sm">Quiet Luxury Atemporal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagem de Campanha Principal -->
+        <div class="lg:col-span-6 order-1 lg:order-2">
+          <div class="relative">
+            <!-- Moldura e composição editorial com proporção rica -->
+            <div class="aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[#ECE5DA] relative shadow-2xl">
+              <img id="heroImage" 
+                   src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop" 
+                   alt="Campanha Marissea" 
+                   class="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-1000">
+              
+              <!-- Selo sutil no canto da foto -->
+              <div class="absolute bottom-6 right-6 bg-[#FAF8F5]/90 backdrop-blur-sm px-4 py-2 border border-white/50 text-[10px] tracking-luxury uppercase text-[#0B2545]">
+                Ateliê Marissea
+              </div>
+            </div>
+            
+            <!-- Elemento de fundo arquitetônico sutil -->
+            <div class="absolute -bottom-6 -left-6 w-48 h-48 border border-[#0B2545]/15 -z-10 hidden sm:block"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divisória Orgânica Sutil (Linha de Onda Suave) -->
+  <div class="w-full flex justify-center py-6 opacity-30 text-[#0B2545]">
+    <svg width="120" height="12" viewBox="0 0 120 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 6C15 2 25 10 40 6C55 2 65 10 80 6C95 2 105 10 120 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- ==========================================
+       CATÁLOGO / COLEÇÃO
+       ========================================== -->
+  <section id="colecao" class="py-16 sm:py-24 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho da Coleção -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-[11px] uppercase tracking-[0.25em] font-medium text-[#0B2545] block mb-2">
+          Catálogo Exclusivo
+        </span>
+        <h2 class="font-serifTitle text-3xl sm:text-4xl text-[#0B2545] font-normal mb-4">
+          A Coleção
+        </h2>
+        <p class="font-serifBody text-base sm:text-lg text-[#6B7280] italic">
+          Silhuetas fluidas, alfaiataria em linho nobre e caimentos pensados para acompanhar com distinção momentos inesquecíveis.
+        </p>
+      </div>
+
+      <!-- Barra de Filtros e Busca -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-black/[0.08] mb-12">
+        
+        <!-- Categorias dinâmicas com rolagem horizontal no mobile -->
+        <div id="categoryTabs" class="flex items-center gap-1 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+          <!-- Renderizado via app.js -->
+        </div>
+
+        <!-- Contador e Busca Minimalista -->
+        <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+          <span id="productCount" class="text-xs uppercase tracking-luxury text-[#6B7280] font-medium">
+            Carregando...
+          </span>
+
+          <div class="relative w-48 sm:w-56">
+            <input type="text" id="searchInput" placeholder="Buscar modelo..." 
+                   class="w-full bg-white/80 border border-black/[0.1] px-3 py-1.5 pl-8 text-xs text-[#0B2545] placeholder-[#6B7280]/60 focus:outline-none focus:border-[#0B2545] transition-colors rounded-none">
+            <i data-lucide="search" class="w-3.5 h-3.5 text-[#6B7280] absolute left-2.5 top-1/2 -translate-y-1/2"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Grid de Produtos (Editorial 2 colunas no mobile, 3 ou 4 no desktop) -->
+      <div id="productGrid" class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-8 sm:gap-y-14">
+        <!-- Renderizado dinamicamente via app.js -->
+      </div>
+
+      <!-- Rodapé da Seção Coleção -->
+      <div class="text-center mt-16 pt-10 border-t border-black/[0.08]">
+        <p class="font-serifBody text-base text-[#6B7280] italic mb-4">
+          Deseja uma peça sob medida ou atendimento personalizado para eventos?
+        </p>
+        <a id="catalogConciergeWhatsapp" href="https://wa.me/5511999998888" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline text-xs">
+          <i data-lucide="message-circle" class="w-4 h-4 mr-2"></i>
+          Falar com Nosso Concierge
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       MANIFESTO / QUOTE BANNER
+       ========================================== -->
+  <section class="py-20 sm:py-28 bg-[#0B2545] text-[#FAF8F5] relative overflow-hidden">
+    <!-- Luz e textura sutil de fundo -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#FAF8F5_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <span class="text-[11px] uppercase tracking-[0.3em] text-[#FAF8F5]/60 block mb-6 font-medium">
+        Filosofia Marissea
+      </span>
+      <blockquote id="aboutQuote" class="font-serifTitle text-2xl sm:text-3xl lg:text-4xl font-light italic leading-relaxed mb-8 text-[#F5EFE6]">
+        “O luxo autêntico não grita. Ele se revela na pureza do corte, na nobreza da matéria-prima e na serenidade de quem sabe quem é.”
+      </blockquote>
+      <div class="w-12 h-[1px] bg-[#FAF8F5]/30 mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SOBRE A MARISSEA
+       ========================================== -->
+  <section id="sobre" class="py-20 sm:py-32 bg-[#F5EFE6]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Galeria Editorial Assimétrica -->
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4 sm:gap-6">
+          <div class="space-y-4 sm:space-y-6">
+            <div class="aspect-[3/4] overflow-hidden shadow-lg">
+              <img id="aboutImg1" src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200&auto=format&fit=crop" 
+                   alt="Tecidos e Fibras Nobres" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+            </div>
+            <div class="p-4 bg-[#FAF8F5] border border-black/[0.06] text-center">
+              <span class="text-[10px] tracking-luxury uppercase text-[#0B2545] font-semibold block">Linho Europeu</span>
+              <span class="font-serifBody text-xs text-[#6B7280] italic">Fibras 100% puras</span>
+            </div>
+          </div>
+
+          <div class="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
+            <div class="p-4 bg-[#0B2545] text-[#FAF8F5] text-center">
+              <span class="text-[10px] tracking-luxury uppercase font-medium block">Atemporal</span>
+              <span class="font-serifBody text-xs text-[#F5EFE6]/80 italic">Acervo permanente</span>
+            </div>
+            <div class="aspect-[3/4] overflow-hidden shadow-lg">
+              <img id="aboutImg2" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop" 
+                   alt="Estética Resort Marissea" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto Institucional & Manifesto -->
+        <div class="lg:col-span-6 flex flex-col justify-center">
+          <span class="text-[11px] uppercase tracking-[0.25em] font-medium text-[#0B2545] block mb-3">
+            Manifesto Institucional
+          </span>
+          <h2 id="aboutTitle" class="font-serifTitle text-3xl sm:text-4xl lg:text-5xl text-[#0B2545] font-normal mb-4 leading-tight">
+            A Essência Marissea
+          </h2>
+          <p id="aboutSubtitle" class="font-serifBody text-lg text-[#0B2545]/80 italic mb-8">
+            Atemporalidade, despojamento refinado e feminilidade discreta.
+          </p>
+
+          <div class="space-y-6 text-[#22262B]/85 text-sm sm:text-base leading-relaxed">
+            <p id="aboutP1">
+              A Marissea nasce da convicção de que a verdadeira sofisticação reside na sutileza e na permanência. Inspirada pelo ritmo compassado dos mais exclusivos balneários do Mediterrâneo, nossa marca veste a mulher que aprecia a distinção sem ostentação.
+            </p>
+            <p id="aboutP2">
+              Nossa criação prioriza matérias-primas puras e nobres: o linho europeu pré-lavado, a seda lavada de gramatura impecável e o algodão de fibra longa. Cada peça é lapidada com alfaiataria precisa, desenvolvida para fluir naturalmente com o corpo.
+            </p>
+            <p id="aboutP3">
+              O mar, para nós, é um horizonte de serenidade. Ele não surge de forma óbvia ou temática, mas na leveza do movimento, nas linhas orgânicas e na elegância do azul-marinho que ancora nossa identidade.
+            </p>
+          </div>
+
+          <div class="mt-10 flex items-center gap-6">
+            <div class="w-16 h-[1px] bg-[#0B2545]"></div>
+            <span class="font-serifBody italic text-lg text-[#0B2545]">Andressa Marques, Concepção & Direção</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       EDITORIAL / JOURNAL
+       ========================================== -->
+  <section id="editorial" class="py-20 sm:py-32 bg-[#FAF8F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-black/[0.08]">
+        <div>
+          <span class="text-[11px] uppercase tracking-[0.25em] font-medium text-[#0B2545] block mb-2">
+            Revista Digital
+          </span>
+          <h2 class="font-serifTitle text-3xl sm:text-4xl text-[#0B2545] font-normal">
+            Editorial & Journal
+          </h2>
+        </div>
+        <p class="font-serifBody text-base text-[#6B7280] italic max-w-md mt-4 md:mt-0">
+          Ensaios, reflexões sobre fibras nobres, destinos de inspiração e a arte de viver com serenidade.
+        </p>
+      </div>
+
+      <!-- Grid de Artigos -->
+      <div id="editorialGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+        <!-- Renderizado dinamicamente via app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTATO & CONCIERGE
+       ========================================== -->
+  <section id="contato" class="py-20 sm:py-28 bg-[#FAF8F5] border-t border-black/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <div class="lg:col-span-5">
+          <span class="text-[11px] uppercase tracking-[0.25em] font-medium text-[#0B2545] block mb-2">
+            Atendimento Exclusivo
+          </span>
+          <h2 class="font-serifTitle text-3xl sm:text-4xl text-[#0B2545] font-normal mb-6">
+            Converse Conosco
+          </h2>
+          <p class="font-serifBody text-base text-[#6B7280] italic leading-relaxed mb-8">
+            Nossa equipe de concierge está à disposição para dúvidas sobre tamanhos, encomendas especiais, tecidos e disponibilidade das peças.
+          </p>
+
+          <div class="space-y-6 text-sm">
+            <!-- WhatsApp -->
+            <a id="contactWhatsappLink" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
+              <div class="w-10 h-10 rounded-none bg-[#0B2545] text-[#FAF8F5] flex items-center justify-center group-hover:bg-[#133966] transition-colors">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-[10px] uppercase tracking-luxury text-[#6B7280]">WhatsApp & Concierge</span>
+                <span id="contactWhatsappText" class="font-medium text-[#0B2545] group-hover:underline">(11) 99999-8888</span>
+              </div>
+            </a>
+
+            <!-- Instagram -->
+            <a id="contactInstagramLink" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
+              <div class="w-10 h-10 rounded-none bg-[#0B2545] text-[#FAF8F5] flex items-center justify-center group-hover:bg-[#133966] transition-colors">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-[10px] uppercase tracking-luxury text-[#6B7280]">Instagram Oficial</span>
+                <span id="contactInstagramText" class="font-medium text-[#0B2545] group-hover:underline">@marissea.oficial</span>
+              </div>
+            </a>
+
+            <!-- E-mail -->
+            <a id="contactEmailLink" href="#" class="flex items-center gap-4 group">
+              <div class="w-10 h-10 rounded-none bg-[#0B2545] text-[#FAF8F5] flex items-center justify-center group-hover:bg-[#133966] transition-colors">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-[10px] uppercase tracking-luxury text-[#6B7280]">E-mail Institucional</span>
+                <span id="contactEmailText" class="font-medium text-[#0B2545] group-hover:underline">concierge@marissea.com.br</span>
+              </div>
+            </a>
+
+            <!-- Localização -->
+            <div class="flex items-center gap-4 pt-4 border-t border-black/[0.08]">
+              <div class="w-10 h-10 rounded-none bg-transparent border border-[#0B2545]/20 text-[#0B2545] flex items-center justify-center">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block text-[10px] uppercase tracking-luxury text-[#6B7280]">Atendimento Presencial</span>
+                <span id="contactLocationText" class="text-xs text-[#22262B]">Atendimento Exclusivo sob agendamento | Jardins, São Paulo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulário Elegante de Mensagem / Interesse Direto -->
+        <div class="lg:col-span-7 bg-[#F5EFE6] p-8 sm:p-12 border border-black/[0.06]">
+          <h3 class="font-serifTitle text-2xl text-[#0B2545] mb-2">Envie uma Solicitação</h3>
+          <p class="text-xs text-[#6B7280] mb-8 font-serifBody italic">Retornaremos seu contato em poucas horas através de nosso concierge.</p>
+
+          <form onsubmit="event.preventDefault(); alert('Agradecemos sua mensagem. Nosso concierge entrará em contato em breve!'); this.reset();" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5">Nome Completo</label>
+                <input type="text" required class="w-full bg-[#FAF8F5] border border-black/[0.1] px-4 py-2.5 text-sm text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+              </div>
+              <div>
+                <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5">WhatsApp / Celular</label>
+                <input type="tel" required class="w-full bg-[#FAF8F5] border border-black/[0.1] px-4 py-2.5 text-sm text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5">E-mail</label>
+              <input type="email" required class="w-full bg-[#FAF8F5] border border-black/[0.1] px-4 py-2.5 text-sm text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+            </div>
+
+            <div>
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5">Mensagem / Peça de Interesse</label>
+              <textarea rows="4" required class="w-full bg-[#FAF8F5] border border-black/[0.1] px-4 py-2.5 text-sm text-[#0B2545] focus:outline-none focus:border-[#0B2545] resize-none" placeholder="Conte-nos sobre a peça ou ocasião que procura..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-luxury-primary w-full sm:w-auto">
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER ELEGANTE (AZUL-MARINHO)
+       ========================================== -->
+  <footer class="bg-[#0B2545] text-[#FAF8F5] pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-white/10 items-start">
+        
+        <!-- Logo e Frase da Marca -->
+        <div class="md:col-span-5">
+          <a href="#home" class="inline-block mb-6">
+            <img id="footerLogo" src="assets/images/logo-cream.png" alt="Marissea" class="h-10 sm:h-12 w-auto object-contain">
+          </a>
+          <p id="footerTagline" class="font-serifBody italic text-lg text-[#FAF8F5]/80 max-w-sm mb-6">
+            Elegância que transcende temporadas.
+          </p>
+          <p class="text-xs text-[#FAF8F5]/50 leading-relaxed max-w-sm">
+            Criações autorais em fibras puras inspiradas pelo ritmo tranquilo dos balneários europeus e a sofisticação da mulher atemporal.
+          </p>
+        </div>
+
+        <!-- Links de Navegação -->
+        <div class="md:col-span-4 grid grid-cols-2 gap-8 text-xs uppercase tracking-[0.16em]">
+          <div>
+            <span class="block text-white/40 mb-4 font-semibold">Navegação</span>
+            <ul class="space-y-3">
+              <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="#colecao" class="hover:text-white transition-colors">Coleção</a></li>
+              <li><a href="#editorial" class="hover:text-white transition-colors">Editorial</a></li>
+              <li><a href="#sobre" class="hover:text-white transition-colors">Sobre Nós</a></li>
+              <li><a href="#contato" class="hover:text-white transition-colors">Contato</a></li>
+            </ul>
+          </div>
+          <div>
+            <span class="block text-white/40 mb-4 font-semibold">Social</span>
+            <ul class="space-y-3">
+              <li><a href="https://instagram.com" target="_blank" class="hover:text-white transition-colors">Instagram</a></li>
+              <li><a href="https://wa.me/5511999998888" target="_blank" class="hover:text-white transition-colors">WhatsApp</a></li>
+              <li><a href="mailto:concierge@marissea.com.br" class="hover:text-white transition-colors">E-mail</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Selo de Exclusividade e Acesso Admin -->
+        <div class="md:col-span-3 flex flex-col justify-between h-full">
+          <div class="p-4 border border-white/10 bg-white/[0.02]">
+            <span class="block text-[10px] uppercase tracking-luxury text-[#D7E5EC] mb-1">Atendimento Boutique</span>
+            <p class="text-xs text-white/70 font-serifBody italic">Peças exclusivas produzidas em tiragens limitadas.</p>
+          </div>
+
+          <div class="mt-8 pt-4 flex items-center justify-between text-xs text-white/40">
+            <span>Acesso da Marca</span>
+            <a href="admin.html" class="inline-flex items-center gap-1.5 text-white/40 hover:text-white transition-colors py-1 px-2 border border-white/20 text-[11px] tracking-widest uppercase">
+              <i data-lucide="lock" class="w-3 h-3"></i> Painel /admin
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40">
+        <p>© 2026 Marissea. Todos os direitos reservados. Design e identidade autoral.</p>
+        <p class="mt-2 sm:mt-0 font-serifBody italic">Quiet Luxury & Old Money Fashion</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       MODAL DE DETALHES DO PRODUTO (QUICK VIEW)
+       ========================================== -->
+  <div id="productModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container p-6 sm:p-10">
+      
+      <!-- Botão Fechar -->
+      <button id="modalClose" class="absolute top-4 right-4 text-[#0B2545] p-2 hover:opacity-60 transition-opacity z-20" aria-label="Fechar">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Galeria de Imagens do Produto -->
+        <div class="md:col-span-6 flex flex-col gap-4">
+          <div class="aspect-[3/4] overflow-hidden bg-[#ECE5DA] relative shadow-sm">
+            <img id="modalMainImage" src="" alt="" class="w-full h-full object-cover">
+          </div>
+          <!-- Miniaturas -->
+          <div id="modalThumbs" class="flex gap-2 overflow-x-auto pb-1"></div>
+        </div>
+
+        <!-- Informações e Ações -->
+        <div class="md:col-span-6 flex flex-col">
+          <span id="modalRef" class="text-[11px] uppercase tracking-luxury text-[#6B7280] font-medium mb-1">REF: MAR-101</span>
+          <span id="modalCategory" class="text-[10px] uppercase tracking-luxury text-[#0B2545] font-semibold mb-2">Vestidos</span>
+          
+          <h2 id="modalTitle" class="font-serifTitle text-2xl sm:text-3xl text-[#0B2545] font-normal mb-3">
+            Nome da Peça
+          </h2>
+
+          <div id="modalPrice" class="text-lg font-medium text-[#0B2545] mb-6 tracking-wide">
+            R$ 0,00
+          </div>
+
+          <div class="border-t border-b border-black/[0.08] py-4 mb-6">
+            <h4 class="text-[11px] uppercase tracking-luxury text-[#0B2545] font-semibold mb-2">Descrição & Caimento</h4>
+            <p id="modalDescription" class="text-xs sm:text-sm text-[#6B7280] leading-relaxed font-serifBody italic">
+              Descrição do produto.
+            </p>
+          </div>
+
+          <!-- Composição / Fibras Nobres -->
+          <div class="mb-6">
+            <h4 class="text-[11px] uppercase tracking-luxury text-[#0B2545] font-semibold mb-2">Matéria-Prima & Tecido</h4>
+            <p id="modalComposition" class="text-xs text-[#22262B] bg-[#F5EFE6] px-3.5 py-2.5 border border-black/[0.05]">
+              100% Linho Europeu Puro
+            </p>
+          </div>
+
+          <!-- Tamanhos -->
+          <div class="mb-6">
+            <h4 class="text-[11px] uppercase tracking-luxury text-[#0B2545] font-semibold mb-2">Tamanhos Disponíveis</h4>
+            <div id="modalSizes" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <!-- Cores -->
+          <div class="mb-8">
+            <h4 class="text-[11px] uppercase tracking-luxury text-[#0B2545] font-semibold mb-2">Cores da Peça</h4>
+            <div id="modalColors" class="flex flex-wrap gap-4"></div>
+          </div>
+
+          <!-- Botões de Ação -->
+          <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+            <a id="modalInterestBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-luxury-primary flex-1 text-center">
+              <i data-lucide="message-circle" class="w-4 h-4 mr-1 inline"></i> Tenho Interesse
+            </a>
+            <button id="modalShareBtn" class="btn-luxury-outline px-4" title="Compartilhar peça">
+              <i data-lucide="share-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+          
+          <p class="text-[11px] text-center text-[#6B7280] italic font-serifBody mt-3">
+            Atendimento exclusivo para verificar disponibilidade de tamanho e entrega.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL DE LEITURA EDITORIAL
+       ========================================== -->
+  <div id="articleModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container p-6 sm:p-12 max-w-3xl">
+      <button id="articleModalClose" class="absolute top-4 right-4 text-[#0B2545] p-2 hover:opacity-60 transition-opacity z-20" aria-label="Fechar">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+
+      <div class="mb-6">
+        <span id="articleMeta" class="text-xs uppercase tracking-luxury text-[#6B7280] font-medium block mb-2"></span>
+        <h2 id="articleTitle" class="font-serifTitle text-2xl sm:text-4xl text-[#0B2545] font-normal leading-tight"></h2>
+      </div>
+
+      <div class="aspect-[16/9] overflow-hidden mb-8 shadow-sm">
+        <img id="articleImage" src="" alt="" class="w-full h-full object-cover">
+      </div>
+
+      <div id="articleBody" class="prose prose-stone max-w-none">
+        <!-- Parágrafos do artigo -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de Notificações -->
+  <div id="toast" class="toast-notification">
+    <i data-lucide="check-circle" class="w-4 h-4 text-[#D7E5EC]"></i>
+    <span id="toastMessage">Operação realizada com sucesso.</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Inicializar ícones Lucide
+    lucide.createIcons();
+    // Atualizar ícones após renderizações
+    window.addEventListener('marissea:store_updated', () => {
+      setTimeout(() => lucide.createIcons(), 50);
+    });
+  </script>
+</body>
+</html>

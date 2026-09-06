@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marissea — Painel Administrativo & Gestão Visual (CMS)</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-navy.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            marissea: {
+              navy: '#0B2545',
+              navyDeep: '#071326',
+              navyVivid: '#133966',
+              ivory: '#FAF8F5',
+              cream: '#F5EFE6',
+              sand: '#DDD3C4',
+              charcoal: '#22262B'
+            }
+          },
+          fontFamily: {
+            serifTitle: ['"Bodoni Moda"', 'Georgia', 'serif'],
+            serifBody: ['"Cormorant Garamond"', 'Garamond', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#FAF8F5] text-[#22262B] antialiased min-h-screen">
+
+  <!-- ==========================================
+       TELA DE LOGIN (PROTEGIDA)
+       ========================================== -->
+  <div id="loginSection" class="min-h-screen flex items-center justify-center p-4 bg-[#FAF8F5] relative overflow-hidden">
+    <!-- Fundo geométrico sutil -->
+    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#0B2545_1px,transparent_1px)] [background-size:32px_32px]"></div>
+
+    <div class="max-w-md w-full bg-white p-8 sm:p-12 shadow-xl border border-black/[0.08] relative z-10">
+      
+      <div class="text-center mb-8">
+        <img src="assets/images/logo-navy.png" alt="Marissea" class="h-10 mx-auto mb-4 object-contain">
+        <h1 class="font-serifTitle text-2xl text-[#0B2545] font-normal">Painel de Gestão</h1>
+        <p class="text-xs text-[#6B7280] uppercase tracking-luxury mt-1">Acesso Restrito da Marca</p>
+      </div>
+
+      <div id="loginError" class="hidden mb-6 p-3 bg-red-50 border border-red-200 text-red-700 text-xs text-center">
+        Usuário ou senha incorretos.
+      </div>
+
+      <form id="loginForm" class="space-y-5">
+        <div>
+          <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5 font-medium">Nome de Usuário</label>
+          <input type="text" id="loginUser" required placeholder="Andressa Marques" 
+                 class="w-full bg-[#FAF8F5] border border-black/[0.12] px-4 py-2.5 text-sm text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5 font-medium">Senha</label>
+          <input type="password" id="loginPass" required placeholder="••••••••••••" 
+                 class="w-full bg-[#FAF8F5] border border-black/[0.12] px-4 py-2.5 text-sm text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+        </div>
+
+        <button type="submit" class="btn-luxury-primary w-full py-3 mt-2">
+          Acessar Painel
+        </button>
+      </form>
+
+      <div class="mt-8 pt-6 border-t border-black/[0.06] text-center">
+        <a href="index.html" class="text-xs text-[#6B7280] hover:text-[#0B2545] inline-flex items-center gap-1">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Voltar ao site público
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       DASHBOARD ADMINISTRATIVO COMPLETO (CMS)
+       ========================================== -->
+  <div id="adminDashboard" class="hidden min-h-screen flex flex-col">
+    
+    <!-- Topbar do Admin -->
+    <header class="bg-[#0B2545] text-[#FAF8F5] sticky top-0 z-40 px-4 sm:px-8 py-3.5 flex items-center justify-between border-b border-white/10 shadow-md">
+      <div class="flex items-center gap-4">
+        <a href="index.html" target="_blank" title="Ver catálogo em nova aba">
+          <img src="assets/images/logo-cream.png" alt="Marissea" class="h-7 w-auto object-contain">
+        </a>
+        <span class="hidden sm:inline-block w-[1px] h-5 bg-white/20"></span>
+        <span class="hidden sm:inline-block text-xs uppercase tracking-luxury text-white/70">Gestão Sem Código (CMS)</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs">
+        <span class="hidden md:inline-block text-white/80">Olá, <strong>Andressa Marques</strong></span>
+        
+        <a href="index.html" target="_blank" class="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 transition-colors">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          <span>Ver Loja ao Vivo</span>
+        </a>
+
+        <button id="logoutBtn" class="text-white/60 hover:text-white p-1.5" title="Sair do painel">
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Estrutura Principal -->
+    <div class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+      
+      <!-- Cards de Métricas -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <div class="bg-white p-5 border border-black/[0.08] flex items-center justify-between">
+          <div>
+            <span class="text-[11px] uppercase tracking-luxury text-[#6B7280]">Modelos no Catálogo</span>
+            <p id="statTotalProducts" class="font-serifTitle text-3xl text-[#0B2545] font-normal mt-1">0</p>
+          </div>
+          <div class="w-10 h-10 bg-[#FAF8F5] text-[#0B2545] flex items-center justify-center">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 border border-black/[0.08] flex items-center justify-between">
+          <div>
+            <span class="text-[11px] uppercase tracking-luxury text-[#6B7280]">Categorias Ativas</span>
+            <p id="statTotalCategories" class="font-serifTitle text-3xl text-[#0B2545] font-normal mt-1">0</p>
+          </div>
+          <div class="w-10 h-10 bg-[#FAF8F5] text-[#0B2545] flex items-center justify-center">
+            <i data-lucide="tag" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 border border-black/[0.08] flex items-center justify-between">
+          <div>
+            <span class="text-[11px] uppercase tracking-luxury text-[#6B7280]">Matérias no Editorial</span>
+            <p id="statTotalArticles" class="font-serifTitle text-3xl text-[#0B2545] font-normal mt-1">0</p>
+          </div>
+          <div class="w-10 h-10 bg-[#FAF8F5] text-[#0B2545] flex items-center justify-center">
+            <i data-lucide="book-open" class="w-5 h-5"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Horizontal de Abas do CMS -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-black/[0.08] mb-8 scrollbar-none">
+        <button class="admin-nav-tab px-4 py-2 text-xs uppercase tracking-luxury font-medium transition-all" data-tab="produtos">
+          Produtos
+        </button>
+        <button class="admin-nav-tab px-4 py-2 text-xs uppercase tracking-luxury font-medium transition-all" data-tab="home">
+          Home & Banners
+        </button>
+        <button class="admin-nav-tab px-4 py-2 text-xs uppercase tracking-luxury font-medium transition-all" data-tab="categorias">
+          Categorias
+        </button>
+        <button class="admin-nav-tab px-4 py-2 text-xs uppercase tracking-luxury font-medium transition-all" data-tab="editorial">
+          Editorial / Journal
+        </button>
+        <button class="admin-nav-tab px-4 py-2 text-xs uppercase tracking-luxury font-medium transition-all" data-tab="sobre">
+          Sobre a Marca
+        </button>
+        <button class="admin-nav-tab px-4 py-2 text-xs uppercase tracking-luxury font-medium transition-all" data-tab="contato">
+          Contatos & Logo
+        </button>
+        <button class="admin-nav-tab px-4 py-2 text-xs uppercase tracking-luxury font-medium transition-all" data-tab="backup">
+          Backup & Dados
+        </button>
+      </div>
+
+      <!-- ==========================================
+           ABA: PRODUTOS
+           ========================================== -->
+      <div id="tab-produtos" class="admin-tab-panel">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div class="relative flex-1 max-w-md">
+            <input type="text" id="productSearchInput" placeholder="Filtrar por nome ou código REF..." 
+                   class="w-full bg-white border border-black/[0.12] px-3.5 py-2 pl-9 text-xs text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+            <i data-lucide="search" class="w-4 h-4 text-[#6B7280] absolute left-2.5 top-1/2 -translate-y-1/2"></i>
+          </div>
+
+          <button id="btnNewProduct" class="btn-luxury-primary text-xs py-2.5 px-5">
+            <i data-lucide="plus" class="w-4 h-4 mr-1"></i> Novo Produto
+          </button>
+        </div>
+
+        <!-- Tabela de Produtos -->
+        <div class="bg-white border border-black/[0.08] overflow-x-auto shadow-sm">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-[#FAF8F5] border-b border-black/[0.08] text-[#0B2545] uppercase tracking-luxury text-[10px]">
+              <tr>
+                <th class="py-3 px-4">Foto</th>
+                <th class="py-3 px-4">Modelo & REF</th>
+                <th class="py-3 px-4">Categoria</th>
+                <th class="py-3 px-4">Preço</th>
+                <th class="py-3 px-4">Destaques</th>
+                <th class="py-3 px-4 text-right">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody">
+              <!-- Renderizado via admin.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           ABA: HOME & BANNERS
+           ========================================== -->
+      <div id="tab-home" class="admin-tab-panel hidden">
+        <form id="homeForm" class="bg-white p-6 sm:p-10 border border-black/[0.08] shadow-sm max-w-4xl space-y-6">
+          <h3 class="font-serifTitle text-2xl text-[#0B2545]">Hero Section & Textos Principais</h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="sm:col-span-2">
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Título de Impacto (Hero)</label>
+              <input type="text" id="homeHeroTitle" required class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Subtítulo Explicativo</label>
+              <textarea id="homeHeroSubtitle" rows="2" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm resize-none"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Texto do Botão Principal</label>
+              <input type="text" id="homeHeroBtnText" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+            </div>
+
+            <div>
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Selo / Badge de Coleção</label>
+              <input type="text" id="homeHeroBadge" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Foto Principal da Hero (Campanha)</label>
+              <div class="flex flex-col sm:flex-row gap-4 items-start">
+                <div class="w-32 h-44 bg-[#ECE5DA] overflow-hidden flex-shrink-0 border border-black/10">
+                  <img id="previewHeroImg" src="" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1 space-y-2 w-full">
+                  <input type="text" id="homeHeroImage" placeholder="URL da foto ou envie um arquivo abaixo" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-xs">
+                  <input type="file" id="homeHeroFile" accept="image/*" class="w-full text-xs text-[#6B7280] file:mr-3 file:py-1.5 file:px-3 file:border-0 file:text-xs file:bg-[#0B2545] file:text-white">
+                  <span class="text-[11px] text-[#6B7280] block">Você pode colar o link direto ou selecionar uma foto do seu computador.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Frase de Manifesto (Banner Escuro)</label>
+              <textarea id="homeManifesto" rows="3" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm resize-none"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-luxury-primary">
+            Salvar Alterações da Home
+          </button>
+        </form>
+      </div>
+
+      <!-- ==========================================
+           ABA: CATEGORIAS
+           ========================================== -->
+      <div id="tab-categorias" class="admin-tab-panel hidden max-w-3xl space-y-6">
+        
+        <!-- Criar Nova Categoria -->
+        <form id="newCategoryForm" class="bg-white p-6 border border-black/[0.08] shadow-sm flex flex-col sm:flex-row gap-4 items-end">
+          <div class="flex-1 w-full">
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5 font-medium">Nome da Nova Categoria</label>
+            <input type="text" id="newCategoryName" required placeholder="Ex: Saias Longas, Alfaiataria, Linho..." 
+                   class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+          </div>
+          <button type="submit" class="btn-luxury-primary text-xs py-2.5 px-6 whitespace-nowrap w-full sm:w-auto">
+            Adicionar Categoria
+          </button>
+        </form>
+
+        <!-- Lista de Categorias -->
+        <div class="space-y-2" id="categoriesList">
+          <!-- Renderizado via admin.js -->
+        </div>
+
+      </div>
+
+      <!-- ==========================================
+           ABA: EDITORIAL / JOURNAL
+           ========================================== -->
+      <div id="tab-editorial" class="admin-tab-panel hidden space-y-6">
+        <div class="flex justify-between items-center">
+          <h3 class="font-serifTitle text-2xl text-[#0B2545]">Matérias & Journal</h3>
+          <button id="btnNewArticle" class="btn-luxury-primary text-xs py-2 px-4">
+            <i data-lucide="plus" class="w-4 h-4 mr-1"></i> Nova Matéria
+          </button>
+        </div>
+
+        <div id="articlesList" class="space-y-4">
+          <!-- Renderizado via admin.js -->
+        </div>
+      </div>
+
+      <!-- ==========================================
+           ABA: SOBRE A MARCA
+           ========================================== -->
+      <div id="tab-sobre" class="admin-tab-panel hidden">
+        <form id="aboutForm" class="bg-white p-6 sm:p-10 border border-black/[0.08] shadow-sm max-w-4xl space-y-6">
+          <h3 class="font-serifTitle text-2xl text-[#0B2545]">Manifesto & Página Sobre</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Título da Seção</label>
+              <input type="text" id="aboutTitleInput" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+            </div>
+
+            <div>
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Subtítulo</label>
+              <input type="text" id="aboutSubtitleInput" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Parágrafo 1 (História e Origem)</label>
+              <textarea id="aboutP1Input" rows="3" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm resize-none"></textarea>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Parágrafo 2 (Matérias-Primas e Alfaiataria)</label>
+              <textarea id="aboutP2Input" rows="3" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm resize-none"></textarea>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Parágrafo 3 (Inspiração no Mar e Serenidade)</label>
+              <textarea id="aboutP3Input" rows="3" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm resize-none"></textarea>
+            </div>
+
+            <!-- Imagens do Sobre -->
+            <div>
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Foto 1 (Tecidos/Ateliê)</label>
+              <div class="flex gap-3 items-center">
+                <img id="previewAboutImg1" class="w-16 h-20 object-cover bg-[#ECE5DA] border border-black/10">
+                <div class="flex-1 space-y-1">
+                  <input type="text" id="aboutImg1Input" placeholder="URL ou upload abaixo" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-1.5 text-xs">
+                  <input type="file" id="aboutFileImg1" accept="image/*" class="w-full text-[11px]">
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Foto 2 (Estilo de Vida/Resort)</label>
+              <div class="flex gap-3 items-center">
+                <img id="previewAboutImg2" class="w-16 h-20 object-cover bg-[#ECE5DA] border border-black/10">
+                <div class="flex-1 space-y-1">
+                  <input type="text" id="aboutImg2Input" placeholder="URL ou upload abaixo" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-1.5 text-xs">
+                  <input type="file" id="aboutFileImg2" accept="image/*" class="w-full text-[11px]">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-luxury-primary">
+            Salvar Manifesto e Textos
+          </button>
+        </form>
+      </div>
+
+      <!-- ==========================================
+           ABA: CONTATOS & IDENTIDADE
+           ========================================== -->
+      <div id="tab-contato" class="admin-tab-panel hidden">
+        <form id="contactForm" class="bg-white p-6 sm:p-10 border border-black/[0.08] shadow-sm max-w-4xl space-y-8">
+          
+          <!-- Identidade / Logos -->
+          <div>
+            <h3 class="font-serifTitle text-2xl text-[#0B2545] mb-4">Logos Oficiais da Marca</h3>
+            <p class="text-xs text-[#6B7280] mb-6 font-serifBody italic">
+              A logo oficial foi perfeitamente vetorizada a partir do anexo enviado. Você pode atualizar os arquivos a qualquer momento.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <!-- Logo Escura (para fundos claros) -->
+              <div class="p-4 bg-[#FAF8F5] border border-black/[0.08]">
+                <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-2 font-medium">Logo em Azul-Marinho (Header Claro)</label>
+                <div class="h-16 flex items-center justify-center bg-white p-2 mb-3 border border-black/5">
+                  <img id="previewLogoNavy" src="assets/images/logo-navy.png" class="max-h-12 w-auto object-contain">
+                </div>
+                <input type="text" id="logoNavyInput" class="w-full bg-white border border-black/[0.12] p-1.5 text-xs mb-2">
+                <input type="file" id="logoNavyFile" accept="image/*" class="w-full text-xs">
+              </div>
+
+              <!-- Logo Clara (para fundos escuros) -->
+              <div class="p-4 bg-[#0B2545] text-white">
+                <label class="block text-[11px] uppercase tracking-luxury text-white/80 mb-2 font-medium">Logo em Marfim (Footer & Hero)</label>
+                <div class="h-16 flex items-center justify-center bg-[#071326] p-2 mb-3 border border-white/10">
+                  <img id="previewLogoCream" src="assets/images/logo-cream.png" class="max-h-12 w-auto object-contain">
+                </div>
+                <input type="text" id="logoCreamInput" class="w-full bg-white/10 border border-white/20 p-1.5 text-xs text-white mb-2">
+                <input type="file" id="logoCreamFile" accept="image/*" class="w-full text-xs text-white/60">
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-black/[0.08] pt-6">
+            <h3 class="font-serifTitle text-2xl text-[#0B2545] mb-4">Canais de Contato & Concierge</h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">WhatsApp (Apenas Números com DDD)</label>
+                <input type="text" id="contactWhatsappInput" placeholder="5511999998888" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+                <span class="text-[10px] text-[#6B7280]">Usado para o botão "Tenho Interesse" das peças.</span>
+              </div>
+
+              <div>
+                <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">WhatsApp (Formato de Exibição)</label>
+                <input type="text" id="contactWhatsappFormatInput" placeholder="(11) 99999-8888" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+              </div>
+
+              <div>
+                <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Instagram (@)</label>
+                <input type="text" id="contactInstagramInput" placeholder="marissea.oficial" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+              </div>
+
+              <div>
+                <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">E-mail</label>
+                <input type="email" id="contactEmailInput" placeholder="concierge@marissea.com.br" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+              </div>
+
+              <div class="sm:col-span-2">
+                <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1">Localização / Atendimento Presencial</label>
+                <input type="text" id="contactAddressInput" placeholder="Atendimento Exclusivo sob agendamento | Jardins, São Paulo" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-sm">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-luxury-primary">
+            Salvar Contatos e Identidade
+          </button>
+        </form>
+      </div>
+
+      <!-- ==========================================
+           ABA: BACKUP & DADOS
+           ========================================== -->
+      <div id="tab-backup" class="admin-tab-panel hidden max-w-2xl space-y-6">
+        <div class="bg-white p-8 border border-black/[0.08] shadow-sm space-y-6">
+          <h3 class="font-serifTitle text-2xl text-[#0B2545]">Backup & Preservação dos Dados</h3>
+          <p class="text-xs text-[#6B7280] leading-relaxed">
+            Todas as alterações feitas no catálogo e textos são salvas automaticamente no armazenamento local do navegador. Para garantir sua segurança ou transferir os dados para outro computador, utilize as ferramentas de backup abaixo:
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-[#FAF8F5] border border-black/5 gap-4">
+              <div>
+                <span class="block text-xs uppercase tracking-luxury font-medium text-[#0B2545]">Baixar Cópia de Segurança</span>
+                <span class="text-[11px] text-[#6B7280]">Gera um arquivo .json com todos os produtos, fotos e configurações.</span>
+              </div>
+              <button id="btnDownloadBackup" class="btn-luxury-outline text-xs py-2 px-4 whitespace-nowrap">
+                <i data-lucide="download" class="w-4 h-4 mr-1.5"></i> Exportar Dados
+              </button>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-[#FAF8F5] border border-black/5 gap-4">
+              <div>
+                <span class="block text-xs uppercase tracking-luxury font-medium text-[#0B2545]">Restaurar Cópia de Segurança</span>
+                <span class="text-[11px] text-[#6B7280]">Carregue um arquivo .json previamente exportado.</span>
+              </div>
+              <label class="btn-luxury-outline text-xs py-2 px-4 cursor-pointer whitespace-nowrap">
+                <i data-lucide="upload" class="w-4 h-4 mr-1.5 inline"></i> Carregar Backup
+                <input type="file" id="fileImportBackup" accept=".json" class="hidden">
+              </label>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-red-50/50 border border-red-100 gap-4">
+              <div>
+                <span class="block text-xs uppercase tracking-luxury font-medium text-red-900">Restaurar Dados de Fábrica</span>
+                <span class="text-[11px] text-red-700">Recarrega o acervo inaugural de produtos e textos originais.</span>
+              </div>
+              <button id="btnResetDefaults" class="px-4 py-2 bg-red-800 text-white text-xs hover:bg-red-900 transition-colors uppercase tracking-luxury font-medium whitespace-nowrap">
+                Restaurar Padrões
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL FORMULÁRIO: NOVO / EDITAR PRODUTO
+       ========================================== -->
+  <div id="productFormModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white max-w-3xl w-full p-6 sm:p-10 my-8 shadow-2xl border border-black/10 relative max-h-[90vh] overflow-y-auto">
+      
+      <button id="btnCloseProductModal" class="absolute top-4 right-4 text-[#0B2545] p-2 hover:opacity-60" title="Fechar">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <h2 id="productModalTitle" class="font-serifTitle text-2xl sm:text-3xl text-[#0B2545] mb-6">Adicionar Novo Modelo</h2>
+
+      <form id="productForm" class="space-y-6">
+        
+        <!-- Identificação Básica -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="sm:col-span-2">
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Nome da Peça *</label>
+            <input type="text" id="prodName" required placeholder="Ex: Vestido Midi Riviera em Linho" 
+                   class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-xs text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Código / REF</label>
+            <input type="text" id="prodRef" placeholder="MAR-109" 
+                   class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-xs text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+          </div>
+        </div>
+
+        <!-- Categoria e Preço -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Categoria *</label>
+            <select id="prodCategory" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-xs text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+              <!-- Opções dinâmicas -->
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Preço (R$) [Opcional]</label>
+            <div class="flex gap-2">
+              <input type="number" step="0.01" id="prodPrice" placeholder="1280.00" 
+                     class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-xs text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+              <label class="flex items-center gap-1.5 text-[11px] text-[#6B7280] whitespace-nowrap cursor-pointer">
+                <input type="checkbox" id="prodShowPrice" checked class="accent-[#0B2545]"> Exibir no catálogo
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flags (Novo / Destaque) -->
+        <div class="flex gap-6 p-3 bg-[#FAF8F5] border border-black/5 text-xs">
+          <label class="flex items-center gap-2 cursor-pointer text-[#0B2545] font-medium">
+            <input type="checkbox" id="prodIsNew" class="accent-[#0B2545]">
+            Marcar como "Novo"
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer text-[#0B2545] font-medium">
+            <input type="checkbox" id="prodIsFeatured" class="accent-[#0B2545]">
+            Marcar como "Destaque"
+          </label>
+        </div>
+
+        <!-- Descrição e Composição -->
+        <div class="space-y-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Descrição Poética & Modelagem</label>
+            <textarea id="prodDescription" rows="2" placeholder="Descreva o caimento, silhueta e ocasiões recomendadas..." 
+                      class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-xs text-[#0B2545] focus:outline-none focus:border-[#0B2545] resize-none"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Matéria-Prima / Composição</label>
+            <input type="text" id="prodComposition" placeholder="Ex: 100% Linho Europeu Puro com forro em Algodão Pima" 
+                   class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-xs text-[#0B2545] focus:outline-none focus:border-[#0B2545]">
+          </div>
+        </div>
+
+        <!-- Imagens do Produto -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-b border-black/[0.08] py-4">
+          <!-- Foto Principal -->
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Foto Principal *</label>
+            <div class="flex gap-3 items-center">
+              <div class="w-16 h-20 bg-[#ECE5DA] border border-black/10 overflow-hidden flex-shrink-0">
+                <img id="previewMainImg" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1 space-y-1">
+                <input type="text" id="prodImageMain" placeholder="URL da foto" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-1.5 text-xs">
+                <input type="file" id="prodFileMain" accept="image/*" class="w-full text-[11px]">
+              </div>
+            </div>
+          </div>
+
+          <!-- Foto Secundária (Hover) -->
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Foto Secundária (Efeito Hover)</label>
+            <div class="flex gap-3 items-center">
+              <div class="w-16 h-20 bg-[#ECE5DA] border border-black/10 overflow-hidden flex-shrink-0">
+                <img id="previewSecondaryImg" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1 space-y-1">
+                <input type="text" id="prodImageSecondary" placeholder="URL da foto" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-1.5 text-xs">
+                <input type="file" id="prodFileSecondary" accept="image/*" class="w-full text-[11px]">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gestão de Tamanhos -->
+        <div>
+          <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5 font-medium">Tamanhos Disponíveis</label>
+          <div id="sizesContainer" class="flex flex-wrap gap-2 mb-2"></div>
+          <div class="flex gap-2 max-w-xs">
+            <input type="text" id="newSizeInput" placeholder="Ex: GG, 38, 40..." class="bg-[#FAF8F5] border border-black/[0.12] p-1.5 text-xs flex-1 uppercase">
+            <button type="button" id="btnAddSize" class="px-3 py-1 bg-[#0B2545] text-white text-xs uppercase tracking-luxury">Adicionar</button>
+          </div>
+        </div>
+
+        <!-- Gestão de Cores -->
+        <div>
+          <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1.5 font-medium">Cartela de Cores</label>
+          <div id="colorsContainer" class="flex flex-wrap gap-2 mb-2"></div>
+          <div class="flex gap-2 max-w-md items-center">
+            <input type="color" id="newColorHex" value="#0B2545" class="w-8 h-8 p-0 border border-black/20 cursor-pointer">
+            <input type="text" id="newColorName" placeholder="Nome da cor (ex: Azul Marissea)" class="bg-[#FAF8F5] border border-black/[0.12] p-1.5 text-xs flex-1">
+            <button type="button" id="btnAddColor" class="px-3 py-1.5 bg-[#0B2545] text-white text-xs uppercase tracking-luxury">Adicionar Cor</button>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="flex justify-end gap-3 pt-4 border-t border-black/[0.08]">
+          <button type="button" onclick="document.getElementById('productFormModal').classList.add('hidden')" class="btn-luxury-outline text-xs py-2.5 px-6">
+            Cancelar
+          </button>
+          <button type="submit" class="btn-luxury-primary text-xs py-2.5 px-8">
+            Salvar Modelo
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL FORMULÁRIO: EDITORIAL / JOURNAL
+       ========================================== -->
+  <div id="articleFormModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white max-w-2xl w-full p-6 sm:p-10 my-8 shadow-2xl border border-black/10 relative max-h-[90vh] overflow-y-auto">
+      <button id="btnCloseArticleModal" class="absolute top-4 right-4 text-[#0B2545] p-2 hover:opacity-60" title="Fechar">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <h2 class="font-serifTitle text-2xl text-[#0B2545] mb-6">Publicação no Journal</h2>
+
+      <form id="articleForm" class="space-y-4">
+        <div>
+          <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Título da Matéria *</label>
+          <input type="text" id="artTitle" required class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2 text-xs">
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Subtítulo / Resumo</label>
+          <input type="text" id="artSubtitle" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2 text-xs">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Categoria</label>
+            <input type="text" id="artCategory" placeholder="Ex: Matéria & Design" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2 text-xs">
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Autor</label>
+            <input type="text" id="artAuthor" placeholder="Ex: Ateliê Marissea" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2 text-xs">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Foto de Capa</label>
+          <div class="flex gap-3 items-center">
+            <img id="previewArtImg" class="w-16 h-16 object-cover bg-[#ECE5DA] border border-black/10">
+            <div class="flex-1 space-y-1">
+              <input type="text" id="artCoverImage" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-1.5 text-xs">
+              <input type="file" id="artCoverFile" accept="image/*" class="w-full text-[11px]">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-luxury text-[#0B2545] mb-1 font-medium">Texto Completo (Separe parágrafos com linha em branco)</label>
+          <textarea id="artContent" rows="6" class="w-full bg-[#FAF8F5] border border-black/[0.12] p-2.5 text-xs resize-none"></textarea>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-4 border-t border-black/[0.08]">
+          <button type="button" onclick="document.getElementById('articleFormModal').classList.add('hidden')" class="btn-luxury-outline text-xs py-2 px-5">
+            Cancelar
+          </button>
+          <button type="submit" class="btn-luxury-primary text-xs py-2 px-6">
+            Salvar Matéria
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast de Notificação -->
+  <div id="adminToast" class="toast-notification">
+    <i data-lucide="check-circle" class="w-4 h-4 text-white"></i>
+    <span id="adminToastMsg">Alterações salvas com sucesso.</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/admin.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
