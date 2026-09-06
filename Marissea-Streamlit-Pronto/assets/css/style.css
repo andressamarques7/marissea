@@ -1,0 +1,406 @@
+/* ==========================================================================
+   MARISSEA - DESIGN SYSTEM & STYLESHEET
+   Aesthetic: Quiet Luxury, Old Money, Mediterranean Coastline Whisper
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Marissea Palette */
+  --navy-deep: #071326;
+  --navy-main: #0B2545;
+  --navy-vivid: #133966;
+  --navy-soft: #1B497E;
+  --navy-light: #EBF1F5;
+  
+  --ivory: #FAF8F5;
+  --cream: #F5EFE6;
+  --sand-light: #ECE5DA;
+  --sand: #DDD3C4;
+  --sand-dark: #A89B88;
+  
+  --coastal-mist: #D7E5EC;
+  --coastal-foam: #F0F6F9;
+  
+  --charcoal: #22262B;
+  --muted: #6B7280;
+  --hairline: rgba(11, 37, 69, 0.09);
+  --hairline-light: rgba(250, 248, 245, 0.15);
+
+  /* Fonts */
+  --font-serif-title: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  --font-serif-body: 'Cormorant Garamond', Garamond, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Transitions */
+  --transition-luxury: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.25s ease-out;
+}
+
+/* Base Reset & Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--ivory);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Typography Utilities */
+.font-serif-title {
+  font-family: var(--font-serif-title);
+  letter-spacing: -0.01em;
+}
+
+.font-serif-body {
+  font-family: var(--font-serif-body);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.tracking-luxury {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tracking-wide-editorial {
+  letter-spacing: 0.08em;
+}
+
+/* Backgrounds & Colors */
+.bg-ivory { background-color: var(--ivory); }
+.bg-cream { background-color: var(--cream); }
+.bg-navy-main { background-color: var(--navy-main); }
+.bg-navy-deep { background-color: var(--navy-deep); }
+.bg-coastal-mist { background-color: var(--coastal-mist); }
+.bg-coastal-foam { background-color: var(--coastal-foam); }
+
+.text-navy-main { color: var(--navy-main); }
+.text-navy-deep { color: var(--navy-deep); }
+.text-navy-vivid { color: var(--navy-vivid); }
+.text-ivory { color: var(--ivory); }
+.text-cream { color: var(--cream); }
+.text-sand-dark { color: var(--sand-dark); }
+.text-charcoal { color: var(--charcoal); }
+.text-muted-custom { color: var(--muted); }
+
+/* Borders & Separators */
+.border-hairline {
+  border-color: var(--hairline);
+}
+
+.border-hairline-light {
+  border-color: var(--hairline-light);
+}
+
+/* Subtle Organic Wave Line */
+.wave-divider {
+  width: 100%;
+  height: 24px;
+  background-repeat: repeat-x;
+  opacity: 0.4;
+}
+
+/* Image Animations & Hover Effects */
+.luxury-image-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.luxury-image {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  will-change: transform;
+}
+
+.luxury-card:hover .luxury-image {
+  transform: scale(1.04);
+}
+
+/* Card Image Swap on Hover */
+.product-card-img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 135%; /* 3:4 Luxury Fashion Aspect Ratio */
+  overflow: hidden;
+  background-color: var(--sand-light);
+}
+
+.product-card-img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card-img-container .img-secondary {
+  opacity: 0;
+}
+
+.luxury-card:hover .product-card-img-container .img-secondary {
+  opacity: 1;
+}
+
+.luxury-card:hover .product-card-img-container img {
+  transform: scale(1.03);
+}
+
+/* Elegant Buttons */
+.btn-luxury-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--navy-main);
+  color: var(--ivory);
+  padding: 14px 32px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--navy-main);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-luxury-primary:hover {
+  background-color: var(--navy-deep);
+  border-color: var(--navy-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(11, 37, 69, 0.18);
+}
+
+.btn-luxury-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: transparent;
+  color: var(--navy-main);
+  padding: 13px 30px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--navy-main);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-luxury-outline:hover {
+  background-color: var(--navy-main);
+  color: var(--ivory);
+  transform: translateY(-2px);
+}
+
+.btn-luxury-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--ivory);
+  color: var(--navy-main);
+  padding: 14px 32px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--ivory);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-luxury-light:hover {
+  background-color: transparent;
+  color: var(--ivory);
+  border-color: var(--ivory);
+  transform: translateY(-2px);
+}
+
+/* Category Filter Tabs */
+.category-tab {
+  padding: 8px 18px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-tab:hover {
+  color: var(--navy-main);
+}
+
+.category-tab.active {
+  color: var(--navy-main);
+  border-bottom-color: var(--navy-main);
+  font-weight: 600;
+}
+
+/* Badges */
+.badge-luxury {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.badge-new {
+  background-color: var(--navy-main);
+  color: var(--ivory);
+}
+
+.badge-featured {
+  background-color: var(--cream);
+  color: var(--navy-main);
+  border: 1px solid rgba(11, 37, 69, 0.12);
+}
+
+/* Product Modal / Quick View Drawer */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(7, 19, 38, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-container {
+  background-color: var(--ivory);
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(7, 19, 38, 0.35);
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0) scale(1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sand);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--navy-main);
+}
+
+/* Subtle Floating Animations */
+@keyframes luxuryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: luxuryFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Header blur effect on scroll */
+.header-glass {
+  background-color: rgba(250, 248, 245, 0.94);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.header-scrolled {
+  box-shadow: 0 4px 20px -2px rgba(11, 37, 69, 0.05);
+}
+
+/* Editorial Article Layout */
+.editorial-quote {
+  font-family: var(--font-serif-title);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  border-left: 2px solid var(--navy-main);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: var(--navy-main);
+}
+
+/* Notification Toast */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--navy-main);
+  color: var(--ivory);
+  padding: 14px 24px;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(7, 19, 38, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  z-index: 2000;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
